@@ -11,13 +11,15 @@ Just open with any browser and put it into full-screen mode (since its made with
 
 Search the "settings" array and replace with your data
 
-`var settings = {
+```javascript
+var settings = {
 	hashtags: "biraclub", // separated by comma
 	client_id: "CHANGE_TO_YOUR_CLIENT_ID", // your instagram API key
 	images_to_fetch: 20, // fetch 20 images every request to instagram
 	fetch_time: 50, // fetch pictures every 50 seconds
 	display_time: 10 // change picture every 10 seconds
-}`
+}
+```
 
 ## What is it?
 
