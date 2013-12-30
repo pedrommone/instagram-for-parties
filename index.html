@@ -73,7 +73,7 @@
 			    		// preload image before display
 				    	$('<img class="loader" />').attr('src', img.img).appendTo('body').load(function(){
 
-				    		$('.instagram-username, instagram-pic > img, instagram-comment').fadeOut(600, function(){
+				    		$('.instagram-username, .instagram-pic > img, .instagram-comment').fadeOut(600, function(){
 				    			$('.instagram-pic > img').attr('src', img.img);
 								$('.instagram-comment > p').html(img.comment);
 								$('.instagram-username > p').html('@' + img.username);
