@@ -3,7 +3,6 @@
 	<head>
 		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 		<script src="http://code.stephenmorley.org/javascript/queues/Queue.compressed.js"></script>
-		<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
 
 		<script type="text/javascript">
 			var settings = {
@@ -67,17 +66,17 @@
 			    	console.log("Displaying: " + img.img);
 
 			    	// check if the images are different
-			    	if ($('.top').attr('src') != img.img)
+			    	if ($('.instagram-pic > img').attr('src') != img.img)
 			    	{
 			    		console.log('New picture, now displaying: ' + img.img);
 
 			    		// preload image before display
 				    	$('<img class="loader" />').attr('src', img.img).appendTo('body').load(function(){
 
-				    		$('.top, .comment, .username').fadeOut(600, function(){
-				    			$('.top').attr('src', img.img);
-								$('.comment').html(img.comment);
-								$('.username').html(img.username);
+				    		$('.instagram-username, instagram-pic > img, instagram-comment').fadeOut(600, function(){
+				    			$('.instagram-pic > img').attr('src', img.img);
+								$('.instagram-comment > p').html(img.comment);
+								$('.instagram-username > p').html('@' + img.username);
 				    		}).fadeIn();
 							
 						});
@@ -94,71 +93,104 @@
 				showQueue();
 		    });
 		</script>
-
-		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
 		
 		<style>
-			*{
+			* {
 				margin:0px;
 				padding: 0px;
 			}
 			
-			body{
+			body {
 				height: 100%;
 				font-family: 'Tahoma';
 				background-image: url('http://i.imgur.com/66ptSTe.jpg');	
 			}
 
-			.well{
-				margin-top: 0px;
-				border-color: #ccc;
-				height: 700px;
-			}
-
-			.container{
+			.container {
 				width: 700px;
+				padding-top: 50px;
+				margin: 0 auto;
 			}
 
-			.loader{
-				display: none;
-			}
-
-			img{
-				width: 630px;
-				height: 500px;
-			}
-
-			.page-header {
-				margin-top: -20px;
-				height: 24px;
-			}
-
-			#header{
-				height: 40px;
+			.header-container {
+				height: 35px;
+				text-align: center;
 				background-color: #416f96;
+				border-radius: 20px 20px 0 0;
+			}
+
+			.header-container > span {
+				height: 40px;
 				color: #ffffff;
 				font-size: 20px;
 				font-weight: bold;
+				line-height: 35px;
+			}			
+
+			.image-container {
+				padding-top: 0px;
+				height: 650px;
+				width: 700px;
+				background-color: #cfcfcf;
+				border-radius: 0 0 20px 20px;
+				margin: 0 auto;
 				text-align: center;
-				line-height: 10px;
 			}
 
+			p {
+				padding: 10px;
+			}
+
+			.instagram-username > p {
+				width: 630px;
+				margin: 0 auto;
+				font-family: Tahoma;
+				font-size: 40px;
+				font-weight: bold;
+			}
+
+			.instagram-comment > p {
+				width: 630px;
+				margin: 0 auto;
+				font-family: Tahoma;
+				font-size: 12px;
+			}
+
+			.instagram-pic {
+				width: 630px;
+				margin: 0 auto;
+			}
+
+			.loader {
+				display: none;
+			}
+
+			img {
+				width: 630px;
+				height: 500px;
+			}
 		
 		</style>
 	</head>
 
 	<body>
 		<div class="container">
-			<div class="well text-center" id="header">				
+			<div class="header-container">				
 				<span>UPLOAD YOUR PICUTURE WITH #BIRACLUB!</span>				
 			</div>
-			<div class="well" id="title">
-				<div class="page-header">
-					<h1 class="username" style="font-family:'tahoma';">Instagram for Parties!</h1>
+
+			<div class="image-container">
+				<div class="instagram-username">
+					<p>Instagram for Parties!</p>
+				</div>
+	
+				<div class="instagram-pic">
+					<img src="http://i.imgur.com/66ptSTe.jpg">
 				</div>
 
-				<img class="top" src="http://i.imgur.com/66ptSTe.jpg">
-				<h1><small class="comment">Instagram for Parties!</small></h1>
+				<div class="instagram-comment">
+					<p>Instagram for Parties!</p>
+				</div>				
 			</div>
 		</div>
 
